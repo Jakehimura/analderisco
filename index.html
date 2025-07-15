@@ -1205,7 +1205,7 @@
                 <small>Pontuação obtida: ${score} pontos</small><br><br>
                 <div style="background: rgba(74,158,255,0.1); padding: 10px; border-radius: 5px; margin-top: 15px;">
                     <strong>✅ Dados enviados com sucesso!</strong><br>
-                    Suas informações foram registradas na planilha.
+                    Obrigado!
                 </div>
             `;
             resultDiv.className = `result ${classe}`;
@@ -1218,7 +1218,7 @@
         // Function to send data to Google Sheets
         async function sendToGoogleSheets(data) {
             // SUBSTITUA ESTA URL PELA URL DO SEU GOOGLE APPS SCRIPT
-            const SCRIPT_URL = 'https://script.google.com/macros/s/SEU_SCRIPT_ID/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb3cIXgZ4HtO5nvc9fH7EToFes9be5qWtNZVIHxBKNpmPPxrCMpxKalY1S0Wc6Eh2L/exec';
             
             try {
                 const response = await fetch(SCRIPT_URL, {

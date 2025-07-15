@@ -593,7 +593,7 @@
                 </div>
 
                 <div class="question-group" id="imovelQuitadoGroup" style="display: none;">
-                    <div class="question">Caso possua imóvel próprio, esse imóvel está quitado?</div>
+                    <div class="question"> Esse imóvel está quitado?</div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="imovel_quitado" value="sim" id="quitado1">
@@ -666,12 +666,12 @@
                 </div>
 
                 <div class="question-group">
-                    <div class="question">Caso possua investimentos, qual o valor investido atualmente?</div>
+                    <div class="question"> Qual o valor investido atualmente?</div>
                     <input type="text" name="valor_investido" class="form-input" placeholder="R$ 0,00">
                 </div>
 
                 <div class="question-group">
-                    <div class="question">Caso possua investimentos, que percentual de sua renda você investe regularmente?</div>
+                    <div class="question">Qual percentual de sua renda você investe regularmente?</div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="percentual_investimento" value="10" id="percentual1">
@@ -712,7 +712,7 @@
 
                 <div id="dividasFields" style="display: none;">
                     <div class="question-group">
-                        <div class="question">Caso possua dívidas, qual o valor total?</div>
+                        <div class="question">Qual o valor total?</div>
                         <input type="text" name="valor_dividas" class="form-input" placeholder="R$ 0,00">
                     </div>
 
@@ -1140,15 +1140,15 @@
             if (score <= 4) {
                 perfil = 'CONSERVADOR';
                 classe = 'conservador';
-                descricao = 'Você tem perfil conservador. Prefere segurança e liquidez nos investimentos, com baixo risco de perda. Recomendamos: Poupança, CDB, Tesouro Selic, Fundos DI.';
+                descricao = 'Você tem perfil conservador. Prefere segurança e liquidez nos investimentos, com baixo risco de perda.';
             } else if (score <= 8) {
                 perfil = 'MODERADO';
                 classe = 'moderado';
-                descricao = 'Você tem perfil moderado. Aceita certo nível de risco em busca de melhores rentabilidades. Recomendamos: Tesouro IPCA+, Fundos Multimercados, Ações de empresas consolidadas.';
+                descricao = 'Você tem perfil moderado. Aceita certo nível de risco em busca de melhores rentabilidades.';
             } else {
                 perfil = 'ARROJADO';
                 classe = 'arrojado';
-                descricao = 'Você tem perfil arrojado. Busca altas rentabilidades e aceita riscos elevados. Recomendamos: Ações, Fundos de Ações, Derivativos, Investimentos no exterior.';
+                descricao = 'Você tem perfil arrojado. Busca altas rentabilidades e aceita riscos elevados.';
             }
             
             // Prepare data for Google Sheets

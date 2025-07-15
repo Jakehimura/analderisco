@@ -383,15 +383,14 @@
             <h2 class="form-title">Questionário de Risco de Investidor</h2>
             
             <div class="intro-text">
-                A análise de perfil do investidor, também conhecida como suitability, serve para identificar as características de um indivíduo que pretende investir, indicando a carteira mais adequada a cada um.
+                O objetivo deste questionário é verificar a adequação dos investimentos pretendidos pelo cotista ao seu perfil de investidor ("Perfil Suitability"), em cumprimento à legislação vigente, qual seja, a Instrução CVM nº. 539/13
             </div>
             
             <div class="intro-list">
-                <strong>A análise de perfil do investidor é importante porque:</strong>
+                <strong>Informações importantes:</strong>
                 <ul>
-                    <li>Orienta a escolha de produtos compatíveis com os objetivos de investimento, tolerância a risco e expectativas</li>
-                    <li>Ajuda a descobrir melhores oportunidades de investimentos</li>
-                    <li>Permite identificar se o perfil do investidor é conservador, moderado ou arrojado</li>
+                    <li>Este documento tem validade de 24 meses</li>
+                    <li>Este questionário tem caráter informativo, não significando ou induzindo qualquer aconselhamento financeiro genérico ou específico</li>
                 </ul>
             </div>
 
@@ -435,6 +434,28 @@
                 <div class="section-title">Dados Profissionais</div>
                 
                 <div class="question-group">
+                    <div class="question">Regime de Trabalho <span class="required">*</span></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="regime" value="clt" id="regime1" required>
+                            <label for="regime1">CLT</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="regime" value="empresario" id="regime2">
+                            <label for="regime2">Empresário</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="regime" value="autonomo" id="regime3">
+                            <label for="regime3">Autônomo</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="regime" value="outro" id="regime4">
+                            <label for="regime4">Outro</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
                     <div class="question">Cargo <span class="required">*</span></div>
                     <input type="text" name="cargo" class="form-input" maxlength="60" required>
                 </div>
@@ -455,28 +476,6 @@
                         <option value="publico">Poder Público</option>
                         <option value="outro">Outro</option>
                     </select>
-                </div>
-
-                <div class="question-group">
-                    <div class="question">Regime de Trabalho <span class="required">*</span></div>
-                    <div class="options">
-                        <div class="option">
-                            <input type="radio" name="regime" value="clt" id="regime1" required>
-                            <label for="regime1">CLT</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="regime" value="empresario" id="regime2">
-                            <label for="regime2">Empresário</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="regime" value="autonomo" id="regime3">
-                            <label for="regime3">Autônomo</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="regime" value="outro" id="regime4">
-                            <label for="regime4">Outro</label>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="question-group">
@@ -583,17 +582,17 @@
                     <div class="question">Mora em imóvel <span class="required">*</span></div>
                     <div class="options">
                         <div class="option">
-                            <input type="radio" name="imovel" value="proprio" id="imovel1" required>
+                            <input type="radio" name="imovel" value="proprio" id="imovel1" required onchange="toggleImovelQuitado()">
                             <label for="imovel1">Próprio</label>
                         </div>
                         <div class="option">
-                            <input type="radio" name="imovel" value="alugado" id="imovel2">
+                            <input type="radio" name="imovel" value="alugado" id="imovel2" onchange="toggleImovelQuitado()">
                             <label for="imovel2">Alugado</label>
                         </div>
                     </div>
                 </div>
 
-                <div class="question-group">
+                <div class="question-group" id="imovelQuitadoGroup" style="display: none;">
                     <div class="question">Caso possua imóvel próprio, esse imóvel está quitado?</div>
                     <div class="options">
                         <div class="option">
@@ -701,53 +700,55 @@
                     <div class="question">Possui dívidas? <span class="required">*</span></div>
                     <div class="options">
                         <div class="option">
-                            <input type="radio" name="dividas" value="sim" id="dividas1" required>
+                            <input type="radio" name="dividas" value="sim" id="dividas1" required onchange="toggleDividasFields()">
                             <label for="dividas1">Sim</label>
                         </div>
                         <div class="option">
-                            <input type="radio" name="dividas" value="nao" id="dividas2">
+                            <input type="radio" name="dividas" value="nao" id="dividas2" onchange="toggleDividasFields()">
                             <label for="dividas2">Não</label>
                         </div>
                     </div>
                 </div>
 
-                <div class="question-group">
-                    <div class="question">Caso possua dívidas, qual o valor total?</div>
-                    <input type="text" name="valor_dividas" class="form-input" placeholder="R$ 0,00">
-                </div>
+                <div id="dividasFields" style="display: none;">
+                    <div class="question-group">
+                        <div class="question">Caso possua dívidas, qual o valor total?</div>
+                        <input type="text" name="valor_dividas" class="form-input" placeholder="R$ 0,00">
+                    </div>
 
-                <div class="question-group">
-                    <div class="question">A dívida é:</div>
-                    <div class="options">
-                        <div class="option">
-                            <input type="checkbox" name="tipo_divida" value="veiculo" id="divida1">
-                            <label for="divida1">Veículo</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="tipo_divida" value="imovel" id="divida2">
-                            <label for="divida2">Imóvel</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="tipo_divida" value="emprestimos" id="divida3">
-                            <label for="divida3">Empréstimos</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="tipo_divida" value="outros" id="divida4">
-                            <label for="divida4">Outros</label>
+                    <div class="question-group">
+                        <div class="question">A dívida é:</div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="checkbox" name="tipo_divida" value="veiculo" id="divida1">
+                                <label for="divida1">Veículo</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="tipo_divida" value="imovel" id="divida2">
+                                <label for="divida2">Imóvel</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="tipo_divida" value="emprestimos" id="divida3">
+                                <label for="divida3">Empréstimos</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="tipo_divida" value="outros" id="divida4">
+                                <label for="divida4">Outros</label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="question-group">
-                    <div class="question">Pretende quitar a dívida antecipadamente?</div>
-                    <div class="options">
-                        <div class="option">
-                            <input type="radio" name="quitar_divida" value="sim" id="quitar1">
-                            <label for="quitar1">Sim</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="quitar_divida" value="nao" id="quitar2">
-                            <label for="quitar2">Não</label>
+                    <div class="question-group">
+                        <div class="question">Pretende quitar a dívida antecipadamente?</div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="quitar_divida" value="sim" id="quitar1">
+                                <label for="quitar1">Sim</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="quitar_divida" value="nao" id="quitar2">
+                                <label for="quitar2">Não</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -851,17 +852,17 @@
                     <div class="question">Tem o objetivo de ter renda passiva? <span class="required">*</span></div>
                     <div class="options">
                         <div class="option">
-                            <input type="radio" name="renda_passiva" value="sim" id="passiva1" required>
+                            <input type="radio" name="renda_passiva" value="sim" id="passiva1" required onchange="toggleRendaPassivaField()">
                             <label for="passiva1">Sim</label>
                         </div>
                         <div class="option">
-                            <input type="radio" name="renda_passiva" value="nao" id="passiva2">
+                            <input type="radio" name="renda_passiva" value="nao" id="passiva2" onchange="toggleRendaPassivaField()">
                             <label for="passiva2">Não</label>
                         </div>
                     </div>
                 </div>
 
-                <div class="question-group">
+                <div class="question-group" id="rendaPassivaField" style="display: none;">
                     <div class="question">Caso tenha o objetivo de ter renda passiva, quanto você gostaria de receber mensalmente?</div>
                     <input type="text" name="valor_renda_passiva" class="form-input" placeholder="R$ 0,00">
                 </div>
@@ -1018,6 +1019,48 @@
         formatCurrency(document.querySelector('input[name="valor_dividas"]'));
         formatCurrency(document.querySelector('input[name="valor_renda_passiva"]'));
 
+        // Toggle functions for conditional fields
+        function toggleImovelQuitado() {
+            const imovelProprio = document.getElementById('imovel1').checked;
+            const quitadoGroup = document.getElementById('imovelQuitadoGroup');
+            
+            if (imovelProprio) {
+                quitadoGroup.style.display = 'block';
+            } else {
+                quitadoGroup.style.display = 'none';
+                // Reset fields
+                document.querySelectorAll('input[name="imovel_quitado"]').forEach(input => input.checked = false);
+            }
+        }
+
+        function toggleDividasFields() {
+            const possuiDividas = document.getElementById('dividas1').checked;
+            const dividasFields = document.getElementById('dividasFields');
+            
+            if (possuiDividas) {
+                dividasFields.style.display = 'block';
+            } else {
+                dividasFields.style.display = 'none';
+                // Reset fields
+                document.querySelector('input[name="valor_dividas"]').value = '';
+                document.querySelectorAll('input[name="tipo_divida"]').forEach(input => input.checked = false);
+                document.querySelectorAll('input[name="quitar_divida"]').forEach(input => input.checked = false);
+            }
+        }
+
+        function toggleRendaPassivaField() {
+            const temRendaPassiva = document.getElementById('passiva1').checked;
+            const rendaPassivaField = document.getElementById('rendaPassivaField');
+            
+            if (temRendaPassiva) {
+                rendaPassivaField.style.display = 'block';
+            } else {
+                rendaPassivaField.style.display = 'none';
+                // Reset field
+                document.querySelector('input[name="valor_renda_passiva"]').value = '';
+            }
+        }
+
         // Validation function
         function validateForm() {
             const form = document.getElementById('riskForm');
@@ -1116,9 +1159,9 @@
                 email: formData.get('email') || '',
                 nascimento: formData.get('nascimento') || '',
                 estado_civil: formData.get('estado_civil') || '',
+                regime: formData.get('regime') || '',
                 cargo: formData.get('cargo') || '',
                 mercado: formData.get('mercado') || '',
-                regime: formData.get('regime') || '',
                 escolaridade: formData.get('escolaridade') || '',
                 dependentes: formData.get('dependentes') || '',
                 filhos_futuro: formData.get('filhos_futuro') || '',
@@ -1126,7 +1169,7 @@
                 renda_mensal: formData.get('renda_mensal') || '',
                 despesas_mensais: formData.get('despesas_mensais') || '',
                 imovel: formData.get('imovel') || '',
-                imovel_quitado: formData.get('imovel_quitado') || '',
+                imovel_quitado: formData.get('imovel') === 'proprio' ? (formData.get('imovel_quitado') || '') : 'N/A',
                 veiculo: formData.get('veiculo') || '',
                 expectativa: formData.get('expectativa') || '',
                 reserva: formData.get('reserva') || '',
@@ -1134,15 +1177,15 @@
                 valor_investido: formData.get('valor_investido') || '',
                 percentual_investimento: formData.get('percentual_investimento') || '',
                 dividas: formData.get('dividas') || '',
-                valor_dividas: formData.get('valor_dividas') || '',
-                tipo_divida: formData.getAll('tipo_divida').join(', '),
-                quitar_divida: formData.get('quitar_divida') || '',
+                valor_dividas: formData.get('dividas') === 'sim' ? (formData.get('valor_dividas') || '') : 'N/A',
+                tipo_divida: formData.get('dividas') === 'sim' ? formData.getAll('tipo_divida').join(', ') : 'N/A',
+                quitar_divida: formData.get('dividas') === 'sim' ? (formData.get('quitar_divida') || '') : 'N/A',
                 conhecimento: formData.get('conhecimento') || '',
                 horizonte: formData.get('horizonte') || '',
                 objetivos: formData.getAll('objetivos').join(', '),
                 internacional: formData.get('internacional') || '',
                 renda_passiva: formData.get('renda_passiva') || '',
-                valor_renda_passiva: formData.get('valor_renda_passiva') || '',
+                valor_renda_passiva: formData.get('renda_passiva') === 'sim' ? (formData.get('valor_renda_passiva') || '') : 'N/A',
                 perfil_auto: formData.get('perfil_auto') || '',
                 tipo_preferencia: formData.get('tipo_preferencia') || '',
                 liquidez: formData.get('liquidez') || '',
@@ -1175,7 +1218,7 @@
         // Function to send data to Google Sheets
         async function sendToGoogleSheets(data) {
             // SUBSTITUA ESTA URL PELA URL DO SEU GOOGLE APPS SCRIPT
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb3cIXgZ4HtO5nvc9fH7EToFes9be5qWtNZVIHxBKNpmPPxrCMpxKalY1S0Wc6Eh2L/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/SEU_SCRIPT_ID/exec';
             
             try {
                 const response = await fetch(SCRIPT_URL, {

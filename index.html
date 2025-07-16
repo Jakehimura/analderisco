@@ -667,12 +667,12 @@
 
 <div id="investimentosFields" style="display: none;">
     <div class="question-group">
-        <div class="question">Caso possua investimentos, qual o valor investido atualmente?</div>
+        <div class="question">Qual o valor você tem investido atualmente?</div>
         <input type="text" name="valor_investido" class="form-input" placeholder="R$ 0,00">
     </div>
 
     <div class="question-group">
-        <div class="question">Caso possua investimentos, que percentual de sua renda você investe regularmente?</div>
+        <div class="question">Qual o percentual de sua renda você investe regularmente?</div>
         <div class="options">
             <div class="option">
                 <input type="radio" name="percentual_investimento" value="10" id="percentual1">
@@ -1034,7 +1034,20 @@
                 document.querySelectorAll('input[name="imovel_quitado"]').forEach(input => input.checked = false);
             }
         }
-
+        function toggleInvestimentosFields() {
+            const possuiInvestimentos = document.getElementById('investimentos1').checked;
+            const investimentosFields = document.getElementById('investimentosFields');
+    
+            if (possuiInvestimentos) {
+                investimentosFields.style.display = 'block';
+            } else {
+                investimentosFields.style.display = 'none';
+                // Reset fields
+                document.querySelector('input[name="valor_investido"]').value = '';
+                document.querySelectorAll('input[name="percentual_investimento"]').forEach(input => input.checked = false);
+             }
+        }
+        
         function toggleDividasFields() {
             const possuiDividas = document.getElementById('dividas1').checked;
             const dividasFields = document.getElementById('dividasFields');
@@ -1176,8 +1189,8 @@
                 expectativa: formData.get('expectativa') || '',
                 reserva: formData.get('reserva') || '',
                 possui_investimentos: formData.get('possui_investimentos') || '',
-                valor_investido: formData.get('valor_investido') || '',
-                percentual_investimento: formData.get('percentual_investimento') || '',
+                valor_investido: formData.get('possui_investimentos') === 'sim' ? (formData.get('valor_investido') || '') : 'N/A',
+                percentual_investimento: formData.get('possui_investimentos') === 'sim' ? (formData.get('percentual_investimento') || '') : 'N/A',
                 dividas: formData.get('dividas') || '',
                 valor_dividas: formData.get('dividas') === 'sim' ? (formData.get('valor_dividas') || '') : 'N/A',
                 tipo_divida: formData.get('dividas') === 'sim' ? formData.getAll('tipo_divida').join(', ') : 'N/A',

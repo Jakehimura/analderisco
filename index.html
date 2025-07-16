@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 525px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
@@ -28,81 +28,33 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #4A9EFF 0%, #6BB6FF 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  	    background: transparent;
+    	    color: transparent;
+	    padding: 0px;
+	    text-align: center;
+	    position: relative;
+	    overflow: hidden;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+       }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-        }
+	.header-image {
+  	  max-width: 400%;
+	    height: auto;
+	    max-height: 250px;
+	    object-fit: contain;
+	    position: relative;
+	    z-index: 1;
+	    display: block;
+	    margin: 0 auto;
+       } 
 
-        .header::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="60" text-anchor="middle" fill="rgba(255,255,255,0.05)">DR</text></svg>') no-repeat center;
-            background-size: contain;
-            z-index: 0;
-        }
-
-        .logo {
-            font-size: 2.5em;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            font-weight: 300;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .partners {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .partner-logo {
-            height: 40px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            transition: all 0.3s ease;
-        }
-
-        .partner-logo:hover {
-            transform: scale(1.1);
-            filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(255,255,255,0.3));
-        }
-
+	   
         .form-container {
             padding: 40px;
+	    max-width: 600px;
+	    margin: 0 auto;
         }
 
         .form-title {
@@ -136,14 +88,14 @@
 
         .section-title {
             background: linear-gradient(135deg, #4A9EFF 0%, #6BB6FF 100%);
-            color: white;
-            padding: 15px 20px;
-            margin: 30px -40px 20px -40px;
-            font-size: 1.2em;
-            font-weight: 600;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+	    color: white;
+	    padding: 15px 20px;
+	    margin: 30px 0 20px 0;
+	    font-size: 1.2em;
+	    font-weight: 600;
+	    text-align: center;
+	    text-transform: uppercase;
+	    letter-spacing: 1px;
         }
 
         .section-title:first-of-type {
@@ -151,11 +103,13 @@
         }
 
         .question-group {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #4A9EFF;
+       	    margin-bottom: 25px;
+    	    padding: 20px;
+	    background: #f8f9fa;
+	    border-radius: 10px;
+	    border-left: 4px solid #4A9EFF;
+	    max-width: 100%;
+	    box-sizing: border-box;
         }
 
         .question {
@@ -368,14 +322,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">DANILO RIZZO</div>
-            <div class="subtitle">CONSULTOR DE INVESTIMENTOS</div>
-            <div class="partners">
-                <img src="https://www.genial.com.br/assets/images/logo-genial-branca.png" alt="Genial Investimentos" class="partner-logo">
-                <img src="https://fictor.com.br/wp-content/uploads/2021/07/logo-fictor-branco.png" alt="Fictor" class="partner-logo">
-                <img src="https://bext.com.br/wp-content/uploads/2022/03/logo-bext-white.png" alt="Bext" class="partner-logo">
-                <img src="https://amfinancialpeak.com.br/wp-content/uploads/2021/03/logo-am-branco.png" alt="AM Financial Peak" class="partner-logo">
-                <img src="https://www.kellerwilliams.com.br/assets/images/kw-logo-white.png" alt="Keller Williams" class="partner-logo">
+           <img src="DMRLOGO.png" alt="Danilo Rizzo - Consultor de Investimentos" class="header-image">
             </div>
         </div>
 

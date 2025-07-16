@@ -648,53 +648,55 @@
                     </div>
                 </div>
 
-                <!-- Investimentos Atuais -->
+              <!-- Investimentos Atuais -->
 <div class="section-title">Investimentos Atuais</div>
 
 <div class="question-group">
     <div class="question">Possui investimentos? <span class="required">*</span></div>
     <div class="options">
         <div class="option">
-            <input type="radio" name="possui_investimentos" value="sim" id="investimentos1" required>
+            <input type="radio" name="possui_investimentos" value="sim" id="investimentos1" required onchange="toggleInvestimentosFields()">
             <label for="investimentos1">Sim</label>
         </div>
         <div class="option">
-            <input type="radio" name="possui_investimentos" value="nao" id="investimentos2">
+            <input type="radio" name="possui_investimentos" value="nao" id="investimentos2" onchange="toggleInvestimentosFields()">
             <label for="investimentos2">Não</label>
         </div>
     </div>
 </div>
 
-<div class="question-group">
-    <div class="question"> Qual o valor investido atualmente?</div>
-    <input type="text" name="valor_investido" class="form-input" placeholder="R$ 0,00">
-</div>
+<div id="investimentosFields" style="display: none;">
+    <div class="question-group">
+        <div class="question">Caso possua investimentos, qual o valor investido atualmente?</div>
+        <input type="text" name="valor_investido" class="form-input" placeholder="R$ 0,00">
+    </div>
 
-<div class="question-group">
-    <div class="question">Qual percentual de sua renda você investe regularmente?</div>
-                        <div class="options">
-                        <div class="option">
-                            <input type="radio" name="percentual_investimento" value="10" id="percentual1">
-                            <label for="percentual1">Até 10%</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="percentual_investimento" value="20" id="percentual2">
-                            <label for="percentual2">Entre 11% e 20%</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="percentual_investimento" value="30" id="percentual3">
-                            <label for="percentual3">Entre 21% e 30%</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="percentual_investimento" value="40" id="percentual4">
-                            <label for="percentual4">Entre 31% e 40%</label>
-                        </div>
-                        <div class="option">
-                            <input type="radio" name="percentual_investimento" value="40+" id="percentual5">
-                            <label for="percentual5">Acima de 40%</label>
-                        </div>
-                    </div>
-                </div>
+    <div class="question-group">
+        <div class="question">Caso possua investimentos, que percentual de sua renda você investe regularmente?</div>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="percentual_investimento" value="10" id="percentual1">
+                <label for="percentual1">Até 10%</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="percentual_investimento" value="20" id="percentual2">
+                <label for="percentual2">Entre 11% e 20%</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="percentual_investimento" value="30" id="percentual3">
+                <label for="percentual3">Entre 21% e 30%</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="percentual_investimento" value="40" id="percentual4">
+                <label for="percentual4">Entre 31% e 40%</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="percentual_investimento" value="40+" id="percentual5">
+                <label for="percentual5">Acima de 40%</label>
+            </div>
+        </div>
+    </div>
+</div>
 
                 <div class="question-group">
                     <div class="question">Possui dívidas? <span class="required">*</span></div>
